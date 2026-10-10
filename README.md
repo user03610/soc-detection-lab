@@ -36,6 +36,12 @@ An isolated host-only network (`192.168.56.0/24`) in VirtualBox.
 
 The four span distinct stages of an intrusion — getting in, running code, staying in, and stealing credentials.
 
+## Network-based detection (Suricata)
+
+The four detections above are host-based — they read what the Windows machine logged about itself. As an extension, I added a network-based view with Suricata (NIDS): a custom rule that catches the same RDP brute force by watching the traffic on the wire instead of the host's logs. Same attack, two vantage points.
+
+→ [network-detection/suricata-rdp-brute-force.md](network-detection/suricata-rdp-brute-force.md)
+
 ## Each detection write-up covers
 
 The attack and how it was run · the log source and specific Event IDs · the SPL query (behaviour-based) · event volume · false-positive analysis and tuning · triage/response steps · the ATT&CK technique · screenshots of the attack and the alert firing · the NCA ECC-2:2024 control mapping.
@@ -46,8 +52,8 @@ The attack and how it was run · the log source and specific Event IDs · the SP
 soc-detection-lab/
 ├── README.md
 ├── lab-setup.md          architecture and build decisions
-├── detections/           one write-up per detection
-├── spl/                  the raw SPL queries
+├── detections/           one write-up per detection (host-based, Splunk)
+├── network-detection/    network-based detection (Suricata)
 └── screenshots/          evidence
 ```
 
