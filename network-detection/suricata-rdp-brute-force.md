@@ -67,9 +67,3 @@ The rule fired and wrote one line to `fast.log`:
 The threshold is the main defence: one normal RDP connection stays under the limit, only a burst from one source fires. The same tuning idea as the host detection applies. If needed, raise the count or narrow the window, and exclude a known-good source (a monitoring host that legitimately opens many RDP connections) by its IP, rather than weakening the rule.
 
 **Limitation:** this counts connections per source, so it catches one source hammering the port. A slow brute force spread over a long time, or spraying from many sources, would stay under the threshold.
-
-## NCA ECC-2:2024 mapping
-
-- **2-5 Networks Security Management**: a network intrusion detection system monitoring traffic is a network-layer security control, which the host-based detections do not cover.
-- **2-12 Cybersecurity Event Logs and Monitoring Management**: Suricata continuously monitors network traffic and records alerts.
-- **2-13 Cybersecurity Incident and Threat Management**: a fired alert is the start of triage and response.
